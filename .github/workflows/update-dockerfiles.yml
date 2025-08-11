@@ -5,8 +5,6 @@ on:
 
 permissions:
   contents: write    # ✅ allow workflow to push commits
-  workflows: write
-
 
 jobs:
   update:
@@ -28,6 +26,6 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git checkout -b update-dockerfiles
-          git add .
+          git add -- ':!.github/workflows/*'
           git commit -m "Bulk update of Dockerfiles"
           git push origin update-dockerfiles
