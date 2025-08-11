@@ -5,6 +5,8 @@ on:
 
 permissions:
   contents: write    # ✅ allow workflow to push commits
+  workflows: write
+
 
 jobs:
   update:
