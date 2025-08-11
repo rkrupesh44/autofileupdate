@@ -1,0 +1,25 @@
+name: Update Dockerfiles
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-dockerfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run update script
+        run: |
+          find . -name "Dockerfile" | while read file; do
+              sed -i 's|python:3.9|python:3.11|g' "$file"
+          done
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b update-dockerfiles
+          git add .
+          git commit -m "Bulk update of Dockerfiles"
+          git push origin update-dockerfiles
