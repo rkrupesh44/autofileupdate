@@ -17,8 +17,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions_rupesh"
-          git config user.email "github-actions-rupesh@gmail.com"
+          git config user.name "Rupesh Kumar"
+          git config user.email "rupeshcuj@gmail.com"
           git checkout -b update-dockerfiles
           git add .
           git commit -m "Bulk update of Dockerfiles"
